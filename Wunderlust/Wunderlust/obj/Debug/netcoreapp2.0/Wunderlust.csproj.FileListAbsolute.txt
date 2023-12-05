@@ -1,0 +1,11 @@
+C:\Users\Парубки\source\repos\Wunderlust\Wunderlust\Wunderlust\obj\Debug\netcoreapp2.0\Wunderlust.csproj.AssemblyReference.cache
+C:\Users\Парубки\source\repos\Wunderlust\Wunderlust\Wunderlust\obj\Debug\netcoreapp2.0\Wunderlust.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Парубки\source\repos\Wunderlust\Wunderlust\Wunderlust\obj\Debug\netcoreapp2.0\App.xaml.g.cs
+C:\Users\Парубки\source\repos\Wunderlust\Wunderlust\Wunderlust\obj\Debug\netcoreapp2.0\AppShell.xaml.g.cs
+C:\Users\Парубки\source\repos\Wunderlust\Wunderlust\Wunderlust\obj\Debug\netcoreapp2.0\Views\CreatePage.xaml.g.cs
+C:\Users\Парубки\source\repos\Wunderlust\Wunderlust\Wunderlust\obj\Debug\netcoreapp2.0\Views\LentaPage.xaml.g.cs
+C:\Users\Парубки\source\repos\Wunderlust\Wunderlust\Wunderlust\obj\Debug\netcoreapp2.0\Views\LoginPage.xaml.g.cs
+C:\Users\Парубки\source\repos\Wunderlust\Wunderlust\Wunderlust\obj\Debug\netcoreapp2.0\Views\ProfilePage.xaml.g.cs
+C:\Users\Парубки\source\repos\Wunderlust\Wunderlust\Wunderlust\obj\Debug\netcoreapp2.0\Wunderlust.AssemblyInfoInputs.cache
+C:\Users\Парубки\source\repos\Wunderlust\Wunderlust\Wunderlust\obj\Debug\netcoreapp2.0\Wunderlust.AssemblyInfo.cs
+C:\Users\Парубки\source\repos\Wunderlust\Wunderlust\Wunderlust\obj\Debug\netcoreapp2.0\Wunderlust.csproj.CoreCompileInputs.cache

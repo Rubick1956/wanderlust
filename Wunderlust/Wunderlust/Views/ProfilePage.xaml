@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Wunderlust.Views.ProfilePage"
+             xmlns:vm="clr-namespace:Wunderlust.ViewModels"
+             xmlns:scroll="clr-namespace:Xamarin.Forms.Extended;assembly=Xamarin.Forms.Extended.InfiniteScrolling"
+             xmlns:tool="http://xamarin.com/schemas/2020/toolkit"
+             Title="{Binding Title}"
+             BackgroundColor="{StaticResource Background}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Sign">#5C5C5C</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <vm:ProfileViewModel />
+    </ContentPage.BindingContext>
+    <StackLayout>
+        <Grid Margin="30,20" ColumnSpacing="10" RowSpacing="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="92"  />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="27" />
+                <RowDefinition Height="55" />
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+            <ImageButton x:Name="profile_icon" IsEnabled="False" HeightRequest="100" CornerRadius="50" Aspect="AspectFill"  Grid.RowSpan="2" Clicked="Set_Image" Source="default_icon.png" BackgroundColor="{StaticResource Background}"/>
+            <Label TextColor="Black" x:Name="name" Grid.Column="1" Grid.Row="0" Text="" FontSize="20" FontAttributes="Bold"/>
+            <Label TextColor="Black" x:Name="profile_info" Grid.Column="1" Grid.Row="1" Text="" FontSize="16"/>
+            <Button FontSize="16" TextColor="White" IsVisible="false" x:Name="edit_butt" Clicked="Edit_Profile" Grid.Column="1" Grid.Row="2" Text="Редактировать" CornerRadius="25" BackgroundColor="{StaticResource Primary}"/>
+        </Grid>
+
+        <ScrollView x:Name="edit" IsVisible="false" IsEnabled="False" Margin="30,0">
+            <StackLayout>
+                <Label Text="Имя*" FontSize="16" TextColor="{StaticResource Sign}"/>
+                <Frame CornerRadius="20" IsClippedToBounds="True" Padding="10, 0, 0, 0">
+                    <Entry TextColor="Black" x:Name="edit_fname" Placeholder="" BackgroundColor="White">
+                        <Entry.Effects>
+                            <tool:RemoveBorderEffect/>
+                        </Entry.Effects>
+                    </Entry>
+                </Frame>
+                <Label Text="Фамилия*" FontSize="16" TextColor="{StaticResource Sign}" Margin="0,40,0,0"/>
+                <Frame CornerRadius="20" IsClippedToBounds="True" Padding="10, 0, 0, 0">
+                    <Entry TextColor="Black" x:Name="edit_sname" Placeholder="" BackgroundColor="White">
+                        <Entry.Effects>
+                            <tool:RemoveBorderEffect/>
+                        </Entry.Effects>
+                    </Entry>
+                </Frame>
+                <Label Text="Логин*" FontSize="16" TextColor="{StaticResource Sign}" Margin="0,40,0,0"/>
+                <Frame CornerRadius="20" IsClippedToBounds="True" Padding="10, 0, 0, 0">
+                    <Entry TextColor="Black" x:Name="edit_login" Placeholder="" BackgroundColor="White">
+                        <Entry.Effects>
+                            <tool:RemoveBorderEffect/>
+                        </Entry.Effects>
+                    </Entry>
+                </Frame>
+                <Label Text="Описание" FontSize="16" TextColor="{StaticResource Sign}" Margin="0,40,0,0"/>
+                <Frame CornerRadius="20" IsClippedToBounds="True" Padding="10, 0, 0, 0">
+                    <Editor TextColor="Black" x:Name="edit_profile_info" Placeholder="" BackgroundColor="White" MinimumHeightRequest="0" HeightRequest="80">
+                        <Editor.Effects>
+                            <tool:RemoveBorderEffect/>
+                        </Editor.Effects>
+                    </Editor>
+                </Frame>
+                <Label Text="Почта*" FontSize="16" TextColor="{StaticResource Sign}" Margin="0,40,0,0"/>
+                <Frame CornerRadius="20" IsClippedToBounds="True" Padding="10, 0, 0, 0">
+                    <Entry TextColor="Black" x:Name="edit_email" Placeholder="" BackgroundColor="White">
+                        <Entry.Effects>
+                            <tool:RemoveBorderEffect/>
+                        </Entry.Effects>
+                    </Entry>
+                </Frame>
+                <Label Text="Телефон*" FontSize="16" TextColor="{StaticResource Sign}" Margin="0,40,0,0"/>
+                <Frame CornerRadius="20" IsClippedToBounds="True" Padding="10, 0, 0, 0">
+                    <Entry TextColor="Black" x:Name="edit_phone" Placeholder="" BackgroundColor="White">
+                        <Entry.Effects>
+                            <tool:RemoveBorderEffect/>
+                        </Entry.Effects>
+                    </Entry>
+                </Frame>
+                <Label Text="Для подтверждения введите пароль" FontSize="16" TextColor="{StaticResource Sign}" Margin="0,40,0,0"/>
+                <Frame CornerRadius="20" IsClippedToBounds="True" Padding="10, 0, 0, 0">
+                    <Entry TextColor="Black" x:Name="pass" IsPassword="True" Placeholder="" BackgroundColor="White">
+                        <Entry.Effects>
+                            <tool:RemoveBorderEffect/>
+                        </Entry.Effects>
+                    </Entry>
+                </Frame>
+                <Button x:Name="save_butt" TextColor="White" FontSize="16" Margin="70,40,70,0" CornerRadius="25" VerticalOptions="Center" Text="Сохранить" Clicked="Save" BackgroundColor="#3F5F16" FontFamily="SF Pro Display"/>
+                <Button FontSize="16" Margin="20,20,20,0" VerticalOptions="Center" Text="Выйти из профиля" Clicked="Logout" BackgroundColor="{StaticResource Background}" TextColor="{StaticResource Primary}" FontFamily="SF Pro Display"/>
+                <Button FontSize="16" Margin="20,0,20,0" VerticalOptions="Center" Text="Удалить профиль" Clicked="Delete_Profile" BackgroundColor="{StaticResource Background}" TextColor="{StaticResource Primary}" FontFamily="SF Pro Display"/>
+            </StackLayout>
+        </ScrollView>
+        <!-- a normal list view -->
+        <ListView IsPullToRefreshEnabled="True" ItemTapped="note_selected" x:Name="lenta" HasUnevenRows="True" CachingStrategy="RecycleElement" ItemsSource="{Binding Items}">
+            <!-- the behavior that will enable infinite scrolling -->
+            <ListView.Behaviors>
+                <scroll:InfiniteScrollBehavior />
+            </ListView.Behaviors>
+            <!-- the row definition -->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Margin="30,10">
+                            <Image HeightRequest="{Binding Size}" Source="{Binding Isource}"/>
+                            <Label TextColor="Black"  FontSize="27" Text="{Binding Note.Title}" HorizontalOptions="Start"/>
+                            <Label TextColor="Black" FontSize="16" Text="{Binding Short_content}" HorizontalOptions="Start"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

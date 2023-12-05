@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:Wunderlust.Views"
+       Title="Wunderlust"
+       x:Class="Wunderlust.AppShell">
+    <!--
+        The overall app visual hierarchy is defined here, along with navigation.
+    
+        https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/
+    -->
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseStyle" TargetType="{Type Element}">
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource Key=Primary}" />
+                <Setter Property="Shell.ForegroundColor" Value="White" />
+                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="#809E59" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
+            </Style>
+            <Style TargetType="{Type TabBar}" BasedOn="{StaticResource Key=BaseStyle}" />
+            <Style TargetType="{Type FlyoutItem}" BasedOn="{StaticResource Key=BaseStyle}" />
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <TabBar PropertyChanged="TabBar_PropertyChanged">
+        <ShellContent Route="toprofile" x:Name="profileitem" Title="Профиль" Icon="profile_icon.png" ContentTemplate="{DataTemplate TypeName=local:ProfilePage}" TabIndex="1" />
+        <ShellContent Route="tocreate" x:Name="createitem" Title="Создать" Icon="new_icon.png" ContentTemplate="{DataTemplate TypeName=local:CreatePage}" TabIndex="2" />
+        <ShellContent Route="tolenta" x:Name="lentaitem" Title="Лента" Icon="lenta_icon.png" ContentTemplate="{DataTemplate TypeName=local:LentaPage}" TabIndex="3" />
+    </TabBar>
+    
+
+</Shell>

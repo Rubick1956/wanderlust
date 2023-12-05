@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Wunderlust.Views.NotePage"
+             xmlns:vm="clr-namespace:Wunderlust.ViewModels"
+             xmlns:scroll="clr-namespace:Xamarin.Forms.Extended;assembly=Xamarin.Forms.Extended.InfiniteScrolling"
+             xmlns:tool="http://xamarin.com/schemas/2020/toolkit"
+             Title="{Binding Title}"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource Background}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Sign">#5C5C5C</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <vm:NoteViewModel />
+    </ContentPage.BindingContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+        <StackLayout Grid.Row="0" HeightRequest="60" Orientation="Horizontal" BackgroundColor="{StaticResource Primary}">
+            <ImageButton Margin="10,0,0,0" HeightRequest="40" Source="back.png" Clicked="Back_Clicked" BackgroundColor="{StaticResource Primary}"/>
+            <Label x:Name="lab" Text="Запись" TextColor="White" HorizontalOptions="Start" VerticalOptions="Center" FontSize="24"/>
+        </StackLayout>
+        <ScrollView Grid.Row="1" Margin="30,0">
+            <StackLayout>
+                <Label x:Name="title" FontSize="28" FontFamily="SF Pro Display" TextColor="Black"/>
+                <Label x:Name="date" FontSize="14" FontFamily="SF Pro Display" TextColor="Black"/>
+                <CarouselView x:Name="images">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding}" Aspect="AspectFit"/>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+                <Label x:Name="text" FontSize="16" FontFamily="SF Pro Display" TextColor="Black"/>
+            </StackLayout>
+        </ScrollView>
+        <StackLayout Grid.Row="2" Orientation="Horizontal" Margin="30,10">
+            <ImageButton Clicked="Profile_Clicked" WidthRequest="50" CornerRadius="25"  x:Name="author_icon" Source="default_icon" Aspect="AspectFill"/>
+            <Button Clicked="Profile_Clicked" x:Name="author_name" FontSize="20" FontFamily="SF Pro Display" BackgroundColor="{StaticResource Background}" TextColor="Black"/>
+        </StackLayout>
+    </Grid>
+</ContentPage>

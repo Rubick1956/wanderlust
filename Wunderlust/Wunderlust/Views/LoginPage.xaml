@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Wunderlust.ViewModels"
+             xmlns:tool="http://xamarin.com/schemas/2020/toolkit"
+             mc:Ignorable="d"
+             x:Class="Wunderlust.Views.LoginPage"
+             Shell.NavBarIsVisible="False" 
+             Shell.TabBarIsVisible="False"
+             BackgroundColor="#B0C09B">
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Padding="10,0" VerticalOptions="Start" Margin="30" Spacing="0">
+            <Label Text="Wanderlust" FontSize="32" VerticalOptions="Start" HorizontalTextAlignment="Center" TextColor="White" Margin="0,80,0,75"/>
+            <Label Text="Логин:" FontSize="20" TextColor="White"/>
+            <Frame CornerRadius="20" IsClippedToBounds="True" Padding="10, 0, 0, 0">
+                <Entry TextColor="Black" x:Name="logentry" Placeholder="Введите логин" BackgroundColor="White" >
+                    <Entry.Effects>
+                        <tool:RemoveBorderEffect/>
+                    </Entry.Effects>
+                </Entry>
+            </Frame>
+            <Label Text="Пароль:" FontSize="20" TextColor="White" Margin="0,25,0,0"/>
+            <Frame CornerRadius="20" IsClippedToBounds="True" Padding="10, 0, 0, 0">
+                <Entry TextColor="Black" x:Name="pasentry" Placeholder="Введите пароль" BackgroundColor="White" IsPassword="True" >
+                    <Entry.Effects>
+                        <tool:RemoveBorderEffect/>
+                    </Entry.Effects>
+                </Entry>
+            </Frame>
+            <Button x:Name="login_butt" FontSize="20" Margin="70,30,70,0" CornerRadius="20" VerticalOptions="Center" Text="Войти" Clicked="Login_Clicked" BackgroundColor="{StaticResource Primary}" FontFamily="SF Pro Display"/>
+            <Button FontSize="16" Margin="20,20,20,0" VerticalOptions="Center" Text="Зарегистрироваться" Clicked="Register" BackgroundColor="#B0C09B" TextColor="{StaticResource Primary}" FontFamily="SF Pro Display"/>
+            <Button FontSize="16" Margin="20,0,20,0" VerticalOptions="Center" Text="Продолжить без входа" Clicked="Login_Anonim" BackgroundColor="#B0C09B" TextColor="{StaticResource Primary}" FontFamily="SF Pro Display"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

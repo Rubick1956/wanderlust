@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Wunderlust.Views.LentaPage"
+             Title="{Binding Title}" 
+             xmlns:model="clr-namespace:Wunderlust.Models"
+             xmlns:vm="clr-namespace:Wunderlust.ViewModels"
+             xmlns:scroll="clr-namespace:Xamarin.Forms.Extended;assembly=Xamarin.Forms.Extended.InfiniteScrolling"
+             BackgroundColor="{StaticResource Background}">
+
+    <ContentPage.BindingContext>
+        <vm:LentaViewModel/>
+    </ContentPage.BindingContext>
+    <!-- a normal list view -->
+    <ListView x:Name="lenta_view" IsPullToRefreshEnabled="true" ItemTapped="note_selected" HasUnevenRows="True" CachingStrategy="RecycleElement" ItemsSource="{Binding Items}">
+
+        <!-- the behavior that will enable infinite scrolling -->
+        <ListView.Behaviors>
+            <scroll:InfiniteScrollBehavior />
+        </ListView.Behaviors>
+
+        <!-- the row definition -->
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Margin="30,10">
+                        <Image HeightRequest="{Binding Size}" Source="{Binding Isource}"/>
+                        <Label TextColor="Black"  FontSize="27" Text="{Binding Note.Title}" HorizontalOptions="Start"/>
+                        <Label TextColor="Black" FontSize="16" Text="{Binding Short_content}" HorizontalOptions="Start"/>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

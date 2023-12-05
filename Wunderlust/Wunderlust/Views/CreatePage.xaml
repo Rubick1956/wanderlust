@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Wunderlust.Views.CreatePage"
+             xmlns:model="clr-namespace:Wunderlust.Models"
+             xmlns:vm="clr-namespace:Wunderlust.ViewModels"
+             xmlns:tool="http://xamarin.com/schemas/2020/toolkit"
+             Title="{Binding Title}"
+             BackgroundColor="{StaticResource Background}">
+
+    <ContentPage.BindingContext>
+        <vm:CreateViewModel/>
+    </ContentPage.BindingContext>
+    
+    <StackLayout Spacing="20" Padding="15">
+        <Frame CornerRadius="20" IsClippedToBounds="True" Padding="0">
+            <Entry TextColor="Black" x:Name="create_title" Placeholder="Напишите заголовок статьи..." BackgroundColor="White">
+                <Entry.Effects>
+                    <tool:RemoveBorderEffect/>
+                </Entry.Effects>
+            </Entry>
+        </Frame>
+        <Frame CornerRadius="20" IsClippedToBounds="True" Padding="0">
+            <Editor TextColor="Black" HeightRequest="400" x:Name="create_text" Placeholder="Напишите текст статьи..." BackgroundColor="White">
+                <Editor.Effects>
+                    <tool:RemoveBorderEffect/>
+                </Editor.Effects>
+            </Editor>
+        </Frame>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="70" />
+            </Grid.ColumnDefinitions>
+            <ScrollView Grid.Column="0" Orientation="Horizontal">
+                <StackLayout  Orientation="Horizontal" x:Name="image_view">
+                    
+                </StackLayout>
+            </ScrollView>
+            <ImageButton Clicked="Add_Images" Grid.Column="1" Source="add_image" BackgroundColor="{StaticResource Background}" WidthRequest="50" HeightRequest="50"/>
+        </Grid>
+        <Button x:Name="create_butt" TextColor="White" Margin="200,0,0,0" FontSize="16" CornerRadius="20" Text="Создать" Clicked="Create_Clicked" Background="{StaticResource Primary}"/>
+    </StackLayout>
+    
+</ContentPage>

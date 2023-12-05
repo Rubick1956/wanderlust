@@ -1,0 +1,1 @@
+C:\Users\Парубки\source\repos\Wunderlust\Wunderlust\Wunderlust.UWP\Wunderlust.UWP.csproj;x64
