@@ -29,3 +29,4 @@ C:\Users\Парубки\source\repos\Wunderlust\Wunderlust\Wunderlust\obj\Releas
 C:\Users\Парубки\source\repos\Wunderlust\Wunderlust\Wunderlust\obj\Release\netstandard2.0\Wunderlust.dll
 C:\Users\Парубки\source\repos\Wunderlust\Wunderlust\Wunderlust\obj\Release\netstandard2.0\refint\Wunderlust.dll
 C:\Users\Парубки\source\repos\Wunderlust\Wunderlust\Wunderlust\obj\Release\netstandard2.0\Wunderlust.pdb
+C:\Users\Парубки\source\repos\Wunderlust\Wunderlust\Wunderlust\obj\Release\netstandard2.0\Wunderlust.sourcelink.json

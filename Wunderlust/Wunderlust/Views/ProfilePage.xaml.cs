@@ -77,6 +77,20 @@ namespace Wunderlust.Views
                 lenta.IsVisible = true;
                 profile_icon.IsEnabled = false;
             }
+            else
+            {
+                profile_icon.Source = "default_icon";
+                name.Text = "";
+                profile_info.Text = ""; 
+                Title = "Профиль";
+                edit_butt.Text = "Редактировать";
+                edit_butt.IsVisible = false;
+                edit.IsEnabled = false;
+                edit.IsVisible = false;
+                lenta.IsEnabled = false;
+                lenta.IsVisible = false;
+                profile_icon.IsEnabled = false;
+            }
             pass.Text = "";
         }
         private void Edit_Profile(object sender, EventArgs e)
